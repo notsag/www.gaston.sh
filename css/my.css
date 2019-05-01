@@ -1,0 +1,48 @@
+body {
+    background-image: url('images/bg.jpg');
+    background-size: cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+body .shell {
+    width: 80%;
+    height: 500px;
+    margin-left: 10%;
+}
+.shell .typed-cursor, .shell .cursor {
+    background: transparent;
+}
+.shell > .status-bar .title {
+    cursor: move;
+}
+.status-bar .title {
+    right: 106px;
+}
+@supports (--css: variables) {
+    .shell.custom .content.terminal {
+        --background: #292929;
+        --color: #aaa;
+    }
+.cmd span.cursor {
+    animation: none;
+    width: auto;
+    background-color: var(--background, #000);
+}
+.shell terminal.content {
+    background-color: var(--background, #222) !important;
+}
+.shell .terminal.content {
+    font-size: 12px;
+}
+.cmd {
+    background-color: inherit;
+}
+@supports (--css: variables) {
+    .shell .terminal.content {
+        font-size: calc(var(--size, 1) * 12px);
+    }
+}
+.terminal > .resizer, .terminal > .font .resizer {
+    visibility: visible;
+    pointer-events: none;
+}
