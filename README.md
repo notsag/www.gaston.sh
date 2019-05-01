@@ -4,16 +4,21 @@ My personal website sources
 
 ## Howto
 
-If you want to use it, just edit the __js/resume.js__ and adapt the content with your own resume.
+### Install
 
-## Requirements
+Clone the project to the webserver and use __Ansible__ :
 
-Requires only a running webserver to serve the sources
+```
+ansible-playbook -b --ask-become-pass -i hosts install.yml
+```
 
-## Todo
+You can edit the website_name, email and install_dir vars to match your own setup.
 
-- [ ] Ansible deployment
-- [ ] Load resume from yml or json file
+Tested on CentOS 7.
+
+### Make my own website like this
+
+If you want to use this project to make your own resume webpage, just edit the __src/js/resume.js__ and adapt the content with your own resume.
 
 ## Credits
 

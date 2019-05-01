@@ -1,0 +1,65 @@
+---
+- name: www.gaston.sh installer
+  hosts: all
+  vars:
+  - website_name: www.gaston.sh
+  - email: maxime@gaston.sh
+  - install_dir: "/var/www/{{ website_name }}"
+  tasks:
+  - name: Create install dir
+    file:
+      path: "{{ install_dir }}"
+      state: directory
+  - name: Install nginx
+    package:
+      name: nginx
+      state: present
+  - name: Install certbot
+    package:
+      name:
+      - certbot
+      - python2-certbot-nginx
+      state: present
+  - name: Check if certificate is present
+    stat:
+      path: "/etc/letsencrypt/live/{{ website_name }}"
+    register: certs
+  - name: Generate certs if not present
+    shell: certbot certonly --non-interactive --email "{{ email }}" --preferred-challenges http --nginx --agree-tos --renew-by-default --webroot-path "{{ install_dir }}" -d "{{ website_name }}"
+    when: not certs.stat.exists
+  - name: Setup certs renewal service
+    copy:
+      src: deploy/{{ item }}
+      dest: /etc/systemd/system/
+    with_items:
+    - certs-renew.service
+    - certs-renew.timer
+  - name: Sync sources to install dir
+    synchronize:
+      src: src/
+      dest: "{{ install_dir }}"
+  - name: Setup permissions on install dir
+    file:
+      path: "{{ install_dir }}"
+      state: directory
+      owner: nginx
+      group: nginx
+  - name: Deploy nginx conf
+    template:
+      src: deploy/nginx-conf.j2
+      dest: "/etc/nginx/conf.d/{{ website_name }}.conf"
+    notify: reload nginx
+  - name: Start and enable certs renewal timer
+    systemd:
+      name: certs-renew.timer
+      daemon_reload: yes
+      enabled: yes
+      state: started
+    with_items:
+    - nginx.service
+    - certs-renew.timer
+  handlers:
+  - name: reload nginx
+    systemd:
+      name: nginx.service
+      state: reloaded

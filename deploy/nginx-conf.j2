@@ -1,0 +1,22 @@
+server {
+    if ($host = {{ website_name }}) {
+        return 301 https://$host$request_uri;
+    }
+    listen 80 ;
+    listen [::]:80 ;
+    server_name {{ website_name }};
+    return 301 https://$host$request_uri;
+}
+server {
+    server_name {{ website_name }};
+    root {{ install_dir }};
+    include /etc/nginx/default.d/*.conf;
+    location / {
+    }
+    listen [::]:443 ssl ipv6only=on;
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/{{ website_name }}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/{{ website_name }}/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
