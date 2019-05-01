@@ -97,7 +97,7 @@ var App = {
     education: function(){
         this.echo("|  " + bold('2011 - 2014:      Engineer Degree - EFREI'));
         this.echo("|  " + bold('2009 - 2011:      DUT Informatique - Universit\u00e9  Paris Sud'));
-        this.echo("|  " + bold('2008 - 2009:      DUT Baccalaur\u00e9at S - Lyc\u00e9e J.B. Corot'));
+        this.echo("|  " + bold('2008 - 2009:      Baccalaur\u00e9at S - Lyc\u00e9e J.B. Corot'));
     },
 
     hobbies: function(){
