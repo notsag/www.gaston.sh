@@ -6,7 +6,7 @@ body {
 }
 body .shell {
     width: 80%;
-    height: 500px;
+    height: 90vh;
     margin-left: 10%;
 }
 .shell .typed-cursor, .shell .cursor {
