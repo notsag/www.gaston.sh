@@ -74,14 +74,16 @@ var App = {
         this.echo("|  " + bold("CI/CD"));
         this.echo("|  " + bold('Ansible') + "           ##[[g;#5BD100;]############################################]       ##");
         this.echo("|  " + bold('Git') + "               ##[[g;#82C500;]###################################]                ##");
+        this.echo("|  " + bold('k8s') + "               ##[[g;#82C500;]###################################]                ##");
         this.echo("|  " + bold('Docker') + "            ##[[g;#82C500;]###################################]                ##");
+        this.echo("|  " + bold('Terraform') + "         ##[[g;#B0C100;]###############################]                    ##");
         this.echo("|  " + bold('Jenkins') + "           ##[[g;#B0C100;]###############################]                    ##");
         this.echo("|  " + bold('Chef') + "              ##[[g;#D93F00;]#########]                                          ##");
-        this.echo("|  " + bold('Puppet') + "            ##[[g;#D93F00;]#########]                                          ##");
     },
 
     experience: function(){
-        this.echo("|  " + bold('Since 2018:       Site Reliability Engineer - LesFurets.com'));
+        this.echo("|  " + bold('Since 2019:       Site Reliability Engineer - Cardiologs'));
+        this.echo("|  " + bold('2018 - 2019:      Site Reliability Engineer - LesFurets.com'));
         this.echo("|  " + bold('2015 - 2018:      Linux System Administrator - Ubisoft'));
         this.echo("|  " + bold('2014 - 2015:      Linux System Engineer - Universit\u00e9  Paris Dauphine'));
         this.echo("|  " + bold('2011 - 2014:      Linux System Administrator - Videomusem'));
@@ -89,23 +91,23 @@ var App = {
     },
 
     volunteering: function(){
-        this.echo("|  " + bold('Since 2011:       First Aid worker - French Red Cross'));
-        this.echo("|  " + bold('Since 2012:       First Aid instructor - French Red Cross'));
+        this.echo("|  " + bold('2011 - 2020:      First Aid worker - French Red Cross'));
+        this.echo("|  " + bold('2012 - 2020:      First Aid instructor - French Red Cross'));
         this.echo("|  " + bold('2012 - 2013:      Operational Cover Manager - French Red Cross'));
     },
 
     education: function(){
         this.echo("|  " + bold('2011 - 2014:      Engineer Degree - EFREI'));
         this.echo("|  " + bold('2009 - 2011:      DUT Informatique - Universit\u00e9  Paris Sud'));
-        this.echo("|  " + bold('2008 - 2009:      DUT Baccalaur\u00e9at S - Lyc\u00e9e J.B. Corot'));
+        this.echo("|  " + bold('2008 - 2009:      Baccalaur\u00e9at S - Lyc\u00e9e J.B. Corot'));
     },
 
     hobbies: function(){
-        this.echo("|  " + bold('Running:') + "          10km, half marathon, marathon, spartan race...");
-        this.echo("|  " + bold('Gym:') + "              Crossfit, strengh training");
-        this.echo("|  " + bold('Music:') + "            From classical to heavy metal");
-        this.echo("|  " + bold('Reading:') + "          Fantasy, thrillers, sci/fi");
-        this.echo("|  " + bold('First Aid:') + "        Team First Aid level 2 and Civic First Aid Instructor");
+        this.echo("|  " + bold('Running:') + "           10km, half marathon, marathon, spartan race...");
+        this.echo("|  " + bold('Gym:') + "               Crossfit, strengh training");
+        this.echo("|  " + bold('Roleplaying games:') + " Dungeons and Dragons 5E, Call of Cthulhu");
+        this.echo("|  " + bold('Music:') + "             From classical to heavy metal");
+        this.echo("|  " + bold('Reading:') + "           Fantasy, thrillers, sci/fi");
     },
 
     about: function(){
